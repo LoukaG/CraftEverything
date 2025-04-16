@@ -62,6 +62,7 @@ bun install
 bunx prisma generate
 bunx prisma migrate dev --name init
 bun run seed.ts      # Load starter elements
+bun run dev
 ```
 
 ### 4. Client (Flutter)
