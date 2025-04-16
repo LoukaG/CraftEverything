@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Element {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  icon      String   @db.VarChar(5)
+  createdAt DateTime @default(now())
+
+  craftsAsElementA Craft[] @relation("Element1")
+  craftsAsElementB Craft[] @relation("Element2")
+  craftsAsResult   Craft[] @relation("ResultElement")
+}
+
+model Craft {
+  id         String   @id @default(cuid())
+  element1   String
+  element2   String
+  resultId   String
+
+  elementA   Element  @relation("Element1", fields: [element1], references: [id])
+  elementB   Element  @relation("Element2", fields: [element2], references: [id])
+  resultElement Element  @relation("ResultElement", fields: [resultId], references: [id])
+
+  createdAt  DateTime @default(now())
+
+  @@unique([element1, element2])
+}

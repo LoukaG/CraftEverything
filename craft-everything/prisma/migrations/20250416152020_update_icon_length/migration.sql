@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Element" ALTER COLUMN "icon" SET DATA TYPE VARCHAR(5);
