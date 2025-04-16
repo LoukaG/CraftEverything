@@ -2,6 +2,7 @@
 
 **Craft Everything** is a mobile game where players combine basic elements to discover new ones.  
 The backend uses Bun, Hono, Prisma, and LLMs (OpenAI + LLaMA). The frontend is built with Flutter.
+</br></br>*The project was coded in less than a day on April 16, 2025, so there may be bugs or missing features.*
 
 ## 🛠 Tech Stack
 - Backend: Bun, Hono, Prisma, OpenAI API, Ollama (LLaMA)
@@ -61,4 +62,12 @@ bun install
 bunx prisma generate
 bunx prisma migrate dev --name init
 bun run seed.ts      # Load starter elements
+```
+
+### 4. Client (Flutter)
+Run the app
+```bash
+cd client
+flutter pub get
+flutter run
 ```
